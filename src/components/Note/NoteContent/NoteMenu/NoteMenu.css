@@ -1,0 +1,35 @@
+.note__menu {
+    width: 100%;
+    height: 125px;
+    background-color: #BECFCF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.note__menu_left-panel, .note__menu_right-panel {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.note__menu_right-panel {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.note__menu_title input {
+    width: 375px;
+    height: 20px;
+    padding: 5px;
+}
+
+.note__menu_text textarea {
+    width: 375px;
+    height: 50px;
+    margin-top: 5px;
+    padding: 5px;
+}
