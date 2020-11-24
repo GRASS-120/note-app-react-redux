@@ -7,8 +7,7 @@ let NoteContainer = (props) => {
 };
 
 let mapStateToProps = ({notesPage}) => {
-    console.log(notesPage.notes)
-   return {notes: notesPage.notes}
+    return {notes: notesPage.notes}
 };
 
 export default connect(mapStateToProps, {})(NoteContainer)
