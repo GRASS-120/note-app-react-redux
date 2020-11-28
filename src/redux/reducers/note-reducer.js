@@ -1,10 +1,12 @@
 const ADD_NOTE = 'ADD_NOTE';
 const ADD_CATEGORY = 'ADD_CATEGORY';
+// const SET_NOTES_LIST_ON_DRAG = 'SET_NOTES_LIST_ON_DRAG'
 
 let initialState = {
     notes: [
         {
             id: 1,
+            order: 1,
             title: "Заметка 1",
             text: "lorem ipsum dolar sit amet",
             category: "test",
@@ -12,6 +14,7 @@ let initialState = {
         },
         {
             id: 2,
+            order: 2,
             title: "Заметка 2",
             text: "lorem ipsum dolar sit amet",
             category: "test",
@@ -44,6 +47,7 @@ export const noteReducer = (state=initialState, action) => {
 
             let newNote = {
                 id: state.notes.length + 1,
+                order: state.notes.length + 1,
                 title: action.title,
                 text: action.text,
                 category: action.category,
@@ -69,11 +73,29 @@ export const noteReducer = (state=initialState, action) => {
             }
         }
 
+        // case SET_NOTES_LIST_ON_DRAG: {
+
+        //     return {
+        //         ...state,
+        //         notes: state.notes.map((item) => {
+        //             if (item.id === action.note.id){
+        //                 return {...item, order: action.note.order}
+        //             }
+        //             if (item.id === action.currentNote.id){
+        //                 return {...item, order: action.note.order}
+        //             }
+
+        //             return item
+        //         })
+        //     }
+        // }
+
         default: return initialState
     }
 };
 
 export const addNoteAC = (title, text, category, color) => ({type: ADD_NOTE, title: title, text: text, category: category, color: color})
 export const addCategoryAC = (categoryName, color) => ({type: ADD_CATEGORY, categoryName: categoryName, color: color})
+// export const setNotesListOnDragAC = (note, currentNote) => ({type: SET_NOTES_LIST_ON_DRAG, note: note, currentNote: currentNote})
 
 export default noteReducer

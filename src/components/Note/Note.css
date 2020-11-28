@@ -50,6 +50,25 @@
     padding-top: 37.5px;
 }
 
+.note__item {
+    width: 375px;
+    height: 375px;
+    margin-bottom: 37.5px;
+}
+
+.note__item_title {
+    font-weight: bold;
+    font-size: 25px;
+    text-align: left;
+    margin: 25px 0 25px 25px;
+}
+
+.note__item_text {
+    font-size: 14px;
+    text-align: left;
+    margin: 25px;
+}
+
 /* Common */
 
 .color-square {
