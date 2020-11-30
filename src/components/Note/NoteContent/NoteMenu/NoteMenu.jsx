@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { clearInput } from '../../../../utils/clearInput';
 import NoteCategoriesList from './NoteCategoriesList/NoteCategoriesList';
-import NoteCategoriesListForm from './NoteCategoriesList/NoteCategoriesList';
 import './NoteMenu.css';
 
 let NoteMenu = (props) => {
@@ -45,11 +44,5 @@ let NoteMenu = (props) => {
         </div>
     )
 }
-
-// let NoteMenuForm = reduxForm({form: 'add_note'})(NoteMenu)
-
-// let onSubmit = (formData) => {
-    
-// }
 
 export default NoteMenu

@@ -1,0 +1,37 @@
+{
+    "colorsList": [
+        {
+            "name": "red",
+            "color": "e55039"
+        },
+        {
+            "name": "orange",
+            "color": "FEA47F"
+        },
+        {
+            "name": "yellow",
+            "color": "f7d794"
+        },
+        {
+            "name": "purple",
+            "color": "9980FA"
+        },
+        {
+            "name": "pink",
+            "color": "f8a5c2"
+        },
+        {
+            "name": "lightblue",
+            "color": "82ccdd"
+        },
+        {
+            "name": "blue",
+            "color": "6a89cc"
+        },
+        {
+            "name": "green",
+            "color": "b8e994"
+        }
+    ]
+}
+

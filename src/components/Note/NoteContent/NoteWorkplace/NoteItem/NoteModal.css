@@ -51,5 +51,23 @@
 .note-modal__content__menu {
     height: 75px;
     width: 100%;
-    background-color:red;
+    display: flex;
+    align-items: center;
+}
+
+.note-modal__content__menu__item {
+    margin-left: 50px;
+    transition: 0.2s ease;
+}
+
+.note-modal__content__menu__item:hover {
+    color: grey;
+}
+
+.note-modal__content__menu__item:last-child {
+    margin-left: 10px;
+}
+
+.note-modal__content__menu__item i {
+   font-size: 25px;
 }

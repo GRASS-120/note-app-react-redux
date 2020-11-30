@@ -1,6 +1,9 @@
 const ADD_NOTE = 'ADD_NOTE';
 const ADD_CATEGORY = 'ADD_CATEGORY';
-// const SET_NOTES_LIST_ON_DRAG = 'SET_NOTES_LIST_ON_DRAG'
+const EDIT_NOTE_TITLE = 'EDIT_NOTE_TITLE';
+const EDIT_NOTE_TEXT = 'EDIT_NOTE_TEXT';
+const DELETE_NOTE = 'DELETE_NOTE';
+const CHANGE_CATEGORY = 'CHANGE_CATEGORY';
 
 let initialState = {
     notes: [
@@ -73,22 +76,21 @@ export const noteReducer = (state=initialState, action) => {
             }
         }
 
-        // case SET_NOTES_LIST_ON_DRAG: {
+        case EDIT_NOTE_TITLE: {
 
-        //     return {
-        //         ...state,
-        //         notes: state.notes.map((item) => {
-        //             if (item.id === action.note.id){
-        //                 return {...item, order: action.note.order}
-        //             }
-        //             if (item.id === action.currentNote.id){
-        //                 return {...item, order: action.note.order}
-        //             }
+        }
 
-        //             return item
-        //         })
-        //     }
-        // }
+        case EDIT_NOTE_TEXT: {
+
+        }
+
+        case DELETE_NOTE: {
+
+        }
+
+        case CHANGE_CATEGORY: {
+
+        }
 
         default: return initialState
     }
@@ -96,6 +98,9 @@ export const noteReducer = (state=initialState, action) => {
 
 export const addNoteAC = (title, text, category, color) => ({type: ADD_NOTE, title: title, text: text, category: category, color: color})
 export const addCategoryAC = (categoryName, color) => ({type: ADD_CATEGORY, categoryName: categoryName, color: color})
-// export const setNotesListOnDragAC = (note, currentNote) => ({type: SET_NOTES_LIST_ON_DRAG, note: note, currentNote: currentNote})
+export const editNoteTitleAC = () => ({type: EDIT_NOTE_TITLE})
+export const editNoteTextAC = () => ({type: EDIT_NOTE_TEXT})
+export const deleteNoteAC = () => ({type: DELETE_NOTE})
+export const changeCategoryAC = () => ({type: CHANGE_CATEGORY})
 
 export default noteReducer

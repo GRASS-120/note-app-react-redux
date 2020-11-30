@@ -26,7 +26,7 @@ let Note = ({notes}) => {
                 </div>
                 <div className="note__workplace">
                     { notes.map((note, index) =>
-                        <div key={note.id} id={index} className="note__item" style={calculateColor(note.color)} onClick={openNoteModal}>
+                        <div key={index} id={index} className="note__item" style={calculateColor(note.color)} onClick={openNoteModal}>
                             <div onClick={(e) => e.stopPropagation()}>
                                 <p className="note__item_title" onClick={() => {}}>{note.title}</p>
                                 <p className="note__item_text" onClick={() => {}}>{note.text}</p>

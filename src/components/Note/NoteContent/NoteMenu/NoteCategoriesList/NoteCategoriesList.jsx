@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { calculateColor } from '../../../../../utils/calculateColor';
 import { clearInput } from '../../../../../utils/clearInput';
 import './NoteCategoriesList.css';
+import ColorPalette from '../../../../Common/ColorPalette/ColorPalette';
+import data from '../../../../Common/ColorPalette/colors.json';
+
+const defaultColor = data.colorsList[7].color
 
 let NoteCategoriesList = ({
     categories, newTitleText, newMessageText, addNote,
@@ -12,11 +17,11 @@ let NoteCategoriesList = ({
     let [toggledColorPalette, setToggledColorPalette] = useState(false)
     let [toggleInputCategory, setToggleInputCategory] = useState(false)
     let [newCategoryText, setNewCategoryText] = useState("")
-    let [currentColor, setCurrentColor] = useState("b8e994")
+    let [currentColor, setCurrentColor] = useState(defaultColor)
 
     // ! Функции создания
 
-    let addNewNote = (e) => {
+    let addNewNote = () => {
         if (newTitleText !== "" && newMessageText !== ""){
             addNote(newTitleText, newMessageText, currentCategory, currentCategory.color);
             setNewTitleText("");
@@ -25,12 +30,12 @@ let NoteCategoriesList = ({
         }
     }
 
-    let addNewCategory = (e) => {
+    let addNewCategory = () => {
         if (newCategoryText !== ""){
             addCategory(newCategoryText, currentColor);
             setToggleInputCategory(false);
             setNewCategoryText("");
-            setCurrentColor("b8e994");
+            setCurrentColor(defaultColor);
         }
     }
 
@@ -81,19 +86,7 @@ let NoteCategoriesList = ({
                         <span>
                             <input value={newCategoryText} onChange={newCategoryInputOnChange}/>
                             <div className="color-square" style={calculateColor(currentColor)} onClick={toggleColorPalette}></div>
-                            <div className={toggledColorPalette === true ? "color_palette.is-active" : "color_palette"}>
-                                <div className="color_palette__body">
-                                    {/* сделать с помощью контекста, а пока по-колхозному */}
-                                    <div className="color_palette__item" id="c_f7d794" onClick={chooseColor}></div>
-                                    <div className="color_palette__item" id="c_FEA47F" onClick={chooseColor}></div>
-                                    <div className="color_palette__item" id="c_e55039" onClick={chooseColor}></div>
-                                    <div className="color_palette__item" id="c_b8e994" onClick={chooseColor}></div>
-                                    <div className="color_palette__item" id="c_f8a5c2" onClick={chooseColor}></div>
-                                    <div className="color_palette__item" id="c_9980FA" onClick={chooseColor}></div>
-                                    <div className="color_palette__item" id="c_82ccdd" onClick={chooseColor}></div>
-                                    <div className="color_palette__item" id="c_6a89cc" onClick={chooseColor}></div>
-                                </div>
-                            </div>
+                            <ColorPalette taggleState={toggledColorPalette} chooseFunc={chooseColor}/>
                         </span>
                         
                       : <span>
@@ -107,7 +100,7 @@ let NoteCategoriesList = ({
                 </div>
                 <div className={toggledSelect === true ? "categories_list__body.is-active" : "categories_list__body"}>
                     { categories.map((item, index) => 
-                        <div className="categories_list__item">
+                        <div key={index} className="categories_list__item">
                             <div onClick={chooseCategory} id={index}>
                                 {item.categoryName}
                             </div>
@@ -125,5 +118,15 @@ let NoteCategoriesList = ({
         </div>
     );
 };
+
+NoteCategoriesList.propTypes = {
+    categories: PropTypes.object,
+    newTitleText: PropTypes.string,
+    newCategoryText: PropTypes.string,
+    addNote: PropTypes.func,
+    setNewTitleText: PropTypes.func,
+    setNewMessageText: PropTypes.func,
+    addCategory: PropTypes.func
+}
 
 export default NoteCategoriesList;

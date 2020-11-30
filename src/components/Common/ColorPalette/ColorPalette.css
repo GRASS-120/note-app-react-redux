@@ -1,0 +1,58 @@
+.color_palette {  
+    display: none; 
+}
+
+.color_palette.is-active {
+    display: block;
+}
+
+.color_palette__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    top: -60px;
+    left: 125px;
+    background-color: #DDE7E7;
+    border: 1px solid silver;
+}
+
+.color_palette__item {
+    width: 30px;
+    height: 30px;
+}
+
+.color_palette__item#c_f7d794 {
+    background-color: #f7d794;
+}
+
+.color_palette__item#c_f8a5c2 {
+    background-color: #f8a5c2;
+}
+
+.color_palette__item#c_FEA47F {
+    background-color: #FEA47F;
+}
+
+.color_palette__item#c_b8e994 {
+    background-color: #b8e994;
+}
+
+.color_palette__item#c_e55039 {
+    background-color: #e55039;
+}
+
+.color_palette__item#c_9980FA {
+    background-color: #9980FA;
+}
+
+.color_palette__item#c_82ccdd {
+    background-color: #82ccdd;
+}
+
+.color_palette__item#c_6a89cc {
+    background-color: #6a89cc;
+}

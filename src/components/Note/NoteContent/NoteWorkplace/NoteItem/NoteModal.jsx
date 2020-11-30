@@ -21,7 +21,18 @@ let NoteModal = ({active, setActive, note}) => {
                 </div>
                 
                 <div className="note-modal__content__menu">
-                
+                    <div className="note-modal__content__menu__item">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <div className="note-modal__content__menu__item">
+                        <i class="far fa-trash-alt"></i>
+                    </div>
+                    <div className="note-modal__content__menu__item">
+                        <input type="text"/>
+                    </div>
+                    <div className="note-modal__content__menu__item">
+                        <i class="fas fa-cog"></i>
+                    </div>
                 </div>
             </div>
         </div>
