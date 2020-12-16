@@ -12,13 +12,13 @@ let NoteMenu = (props) => {
         let inputValue = e.target.value
         setNewTitleText(inputValue)
         clearInput(newTitleText, inputValue)
-    }
+    };
 
     let newMessageOnChange = (e) => {
         let textareaValue = e.target.value
         setNewMessageText(textareaValue)
         clearInput(newMessageText, textareaValue)
-    }
+    };
     
     return (
         <div className="note__menu">
@@ -43,6 +43,6 @@ let NoteMenu = (props) => {
             </div>
         </div>
     )
-}
+};
 
-export default NoteMenu
+export default NoteMenu;

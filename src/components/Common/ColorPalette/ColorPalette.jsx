@@ -1,6 +1,6 @@
 import React from 'react';
 import './ColorPalette.css';
-import data from './colors.json'
+import data from './colors.json';
 
 let ColorPalette = ({taggleState, chooseFunc}) => {
     return (
@@ -19,6 +19,6 @@ let ColorPalette = ({taggleState, chooseFunc}) => {
             </div>
         </div>
     )
-}
+};
 
 export default ColorPalette;

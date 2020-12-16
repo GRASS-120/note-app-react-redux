@@ -11,64 +11,6 @@
     flex-direction: column;
 }
 
-/* Note title */
-
-.note__title {
-    width: 100%;
-    height: 90px;
-    background-color: #3E8787;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.note__title > p {
-    font-size: 25px;
-    font-family: 'Merriweather Sans', sans-serif;
-    font-weight: bold;
-    color: white;
-}
-
-/* Note sort */
-
-.note__sort {
-    width: 100%;
-    height: 50px;
-    background-color: #DDE7E7;
-}
-
-/* Note workplace */
-
-.note__workplace {
-    width: 100%;
-    height: 410px;
-    background-color: #EAECEC;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    overflow-y: auto;
-    padding-top: 37.5px;
-}
-
-.note__item {
-    width: 375px;
-    height: 375px;
-    margin-bottom: 37.5px;
-}
-
-.note__item_title {
-    font-weight: bold;
-    font-size: 25px;
-    text-align: left;
-    margin: 25px 0 25px 25px;
-}
-
-.note__item_text {
-    font-size: 14px;
-    text-align: left;
-    margin: 25px;
-}
-
 /* Common */
 
 .color-square {

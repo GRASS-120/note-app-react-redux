@@ -4,6 +4,10 @@ const EDIT_NOTE_TITLE = 'EDIT_NOTE_TITLE';
 const EDIT_NOTE_TEXT = 'EDIT_NOTE_TEXT';
 const DELETE_NOTE = 'DELETE_NOTE';
 const CHANGE_CATEGORY = 'CHANGE_CATEGORY';
+const FILTER_NOTES = 'FILTER_NOTES';
+const DELETE_FILTER = 'DELETE_FILTER';
+
+let pastState = []
 
 let initialState = {
     notes: [
@@ -42,7 +46,7 @@ let initialState = {
             color: "82ccdd"
         }
     ]
-};
+}
 
 export const noteReducer = (state=initialState, action) => {
     switch (action.type){
@@ -50,7 +54,6 @@ export const noteReducer = (state=initialState, action) => {
 
             let newNote = {
                 id: state.notes.length + 1,
-                order: state.notes.length + 1,
                 title: action.title,
                 text: action.text,
                 category: action.category,
@@ -78,29 +81,60 @@ export const noteReducer = (state=initialState, action) => {
 
         case EDIT_NOTE_TITLE: {
 
+            return {
+                ...state,
+                ...state.notes[action.id-1]["title"] = action.newTitle
+            }
         }
 
         case EDIT_NOTE_TEXT: {
+            return {
+                ...state,
+                ...state.notes[action.id-1]["text"] = action.newText
+            }
+        }
 
+        case CHANGE_CATEGORY: {
+             return {...state}
         }
 
         case DELETE_NOTE: {
 
+            // pastState = [...state.notes.filter(note => note.id !== action.id)]
+
+            return {
+                ...state,
+                notes: [...state.notes.filter(note => note.id !== action.id)]
+            }
         }
 
-        case CHANGE_CATEGORY: {
+        case FILTER_NOTES: {
+            let filteredNotes = [...state.notes.filter(note => note.category === action.categoryName)]
+            pastState = state.notes
 
+            return {
+                ...state,
+                notes: [...filteredNotes]
+            }
+        }
+
+        case DELETE_FILTER: {
+            return {
+                ...state,
+                notes: [...pastState]
+            }
         }
 
         default: return initialState
     }
 };
 
-export const addNoteAC = (title, text, category, color) => ({type: ADD_NOTE, title: title, text: text, category: category, color: color})
-export const addCategoryAC = (categoryName, color) => ({type: ADD_CATEGORY, categoryName: categoryName, color: color})
-export const editNoteTitleAC = () => ({type: EDIT_NOTE_TITLE})
-export const editNoteTextAC = () => ({type: EDIT_NOTE_TEXT})
-export const deleteNoteAC = () => ({type: DELETE_NOTE})
-export const changeCategoryAC = () => ({type: CHANGE_CATEGORY})
+export const addNoteAC = (title, text, category, color) => ({type: ADD_NOTE, title: title, text: text, category: category, color: color});
+export const addCategoryAC = (categoryName, color) => ({type: ADD_CATEGORY, categoryName: categoryName, color: color});
+export const editNoteTitle = (id, newTitle) => ({type: EDIT_NOTE_TITLE, id: id, newTitle: newTitle});
+export const editNoteText = (id, newText) => ({type: EDIT_NOTE_TEXT, id: id, newText: newText});
+export const deleteNote = (id) => ({type: DELETE_NOTE, id: id});
+export const filterNotes = (categoryName) => ({type: FILTER_NOTES, categoryName: categoryName});
+export const deleteFilter = () => ({type: DELETE_FILTER});
 
-export default noteReducer
+export default noteReducer;

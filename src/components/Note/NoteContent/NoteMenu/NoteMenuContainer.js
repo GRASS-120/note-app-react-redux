@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { connect } from 'react-redux';
 import { addCategoryAC, addNoteAC } from '../../../../redux/reducers/note-reducer';
 import NoteMenu from './NoteMenu';
@@ -31,6 +31,6 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(action)
         }
     }
-}
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(NoteMenuContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(NoteMenuContainer);
